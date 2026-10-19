@@ -1,0 +1,237 @@
+{
+  "$defs": {
+    "Product": {
+      "additionalProperties": false,
+      "properties": {
+        "family": {
+          "enum": [
+            "macbook",
+            "garmin"
+          ],
+          "title": "Family",
+          "type": "string"
+        },
+        "brand": {
+          "maxLength": 60,
+          "minLength": 1,
+          "title": "Brand",
+          "type": "string"
+        },
+        "model": {
+          "maxLength": 100,
+          "minLength": 1,
+          "title": "Model",
+          "type": "string"
+        },
+        "variant": {
+          "anyOf": [
+            {
+              "maxLength": 100,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Variant"
+        },
+        "ram_gb": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "maximum": 256,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ram Gb"
+        },
+        "ssd_gb": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "maximum": 16384,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ssd Gb"
+        },
+        "size_mm": {
+          "anyOf": [
+            {
+              "maximum": 70,
+              "minimum": 20,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Size Mm"
+        }
+      },
+      "required": [
+        "family",
+        "brand",
+        "model"
+      ],
+      "title": "Product",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "^[\\w.-]+$",
+      "title": "Id",
+      "type": "string"
+    },
+    "source": {
+      "maxLength": 80,
+      "minLength": 1,
+      "pattern": "^[\\w.-]+$",
+      "title": "Source",
+      "type": "string"
+    },
+    "entity_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Entity Id",
+      "type": "string"
+    },
+    "url": {
+      "maxLength": 1500,
+      "title": "Url",
+      "type": "string"
+    },
+    "title": {
+      "maxLength": 250,
+      "minLength": 1,
+      "title": "Title",
+      "type": "string"
+    },
+    "product": {
+      "$ref": "#/$defs/Product"
+    },
+    "price": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "string"
+        }
+      ],
+      "title": "Price"
+    },
+    "currency": {
+      "const": "NOK",
+      "default": "NOK",
+      "title": "Currency",
+      "type": "string"
+    },
+    "condition": {
+      "default": "unknown",
+      "enum": [
+        "excellent",
+        "good",
+        "fair",
+        "damaged",
+        "unknown"
+      ],
+      "title": "Condition",
+      "type": "string"
+    },
+    "demo": {
+      "default": false,
+      "title": "Demo",
+      "type": "boolean"
+    },
+    "kind": {
+      "enum": [
+        "asking",
+        "human_estimate",
+        "transaction"
+      ],
+      "title": "Kind",
+      "type": "string"
+    },
+    "seller_type": {
+      "default": "private",
+      "enum": [
+        "private",
+        "dealer",
+        "unknown"
+      ],
+      "title": "Seller Type",
+      "type": "string"
+    },
+    "availability": {
+      "default": "active",
+      "enum": [
+        "active",
+        "removed",
+        "unknown"
+      ],
+      "title": "Availability",
+      "type": "string"
+    },
+    "observed_at": {
+      "format": "date-time",
+      "title": "Observed At",
+      "type": "string"
+    },
+    "known_at": {
+      "format": "date-time",
+      "title": "Known At",
+      "type": "string"
+    },
+    "documentation": {
+      "maxLength": 1500,
+      "minLength": 5,
+      "title": "Documentation",
+      "type": "string"
+    },
+    "days_to_sell": {
+      "anyOf": [
+        {
+          "maximum": 1000,
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Days To Sell"
+    }
+  },
+  "required": [
+    "id",
+    "source",
+    "entity_id",
+    "url",
+    "title",
+    "product",
+    "price",
+    "kind",
+    "observed_at",
+    "known_at",
+    "documentation"
+  ],
+  "title": "Reference",
+  "type": "object"
+}

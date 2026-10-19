@@ -1,0 +1,540 @@
+{
+  "$defs": {
+    "CatalogItem": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[\\w.-]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "label": {
+          "title": "Label",
+          "type": "string"
+        },
+        "product": {
+          "$ref": "#/$defs/Product"
+        },
+        "baseline_limit": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "title": "Baseline Limit"
+        }
+      },
+      "required": [
+        "id",
+        "label",
+        "product",
+        "baseline_limit"
+      ],
+      "title": "CatalogItem",
+      "type": "object"
+    },
+    "Costs": {
+      "additionalProperties": false,
+      "properties": {
+        "transport": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Transport"
+        },
+        "shipping": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Shipping"
+        },
+        "packaging": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Packaging"
+        },
+        "fees": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Fees"
+        },
+        "accessories": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Accessories"
+        },
+        "repair": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Repair"
+        },
+        "risk_reserve": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Risk Reserve"
+        },
+        "hours": {
+          "anyOf": [
+            {
+              "maximum": 1000.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "default": "1",
+          "title": "Hours"
+        },
+        "overhead": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Overhead"
+        },
+        "capital_cost": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Capital Cost"
+        }
+      },
+      "title": "Costs",
+      "type": "object"
+    },
+    "MailConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "mode": {
+          "default": "DRY_RUN",
+          "enum": [
+            "DRY_RUN",
+            "SMTP"
+          ],
+          "title": "Mode",
+          "type": "string"
+        },
+        "owner_address": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Owner Address"
+        },
+        "from_address": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "From Address"
+        },
+        "smtp_host": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Smtp Host"
+        },
+        "smtp_port": {
+          "default": 587,
+          "maximum": 65535,
+          "minimum": 1,
+          "title": "Smtp Port",
+          "type": "integer"
+        },
+        "cooldown_hours": {
+          "default": 24,
+          "minimum": 0,
+          "title": "Cooldown Hours",
+          "type": "integer"
+        },
+        "score_improvement": {
+          "default": 10,
+          "maximum": 100,
+          "minimum": 1,
+          "title": "Score Improvement",
+          "type": "integer"
+        }
+      },
+      "title": "MailConfig",
+      "type": "object"
+    },
+    "Niche": {
+      "additionalProperties": false,
+      "properties": {
+        "min_gain": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "title": "Min Gain"
+        },
+        "gain_target": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "title": "Gain Target"
+        },
+        "roi_target": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "title": "Roi Target"
+        },
+        "freshness_days": {
+          "maximum": 3650,
+          "minimum": 1,
+          "title": "Freshness Days",
+          "type": "integer"
+        },
+        "liquidity_target_days": {
+          "exclusiveMinimum": 0,
+          "title": "Liquidity Target Days",
+          "type": "integer"
+        },
+        "feasibility_target_hours": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "title": "Feasibility Target Hours"
+        },
+        "defaults": {
+          "$ref": "#/$defs/Costs"
+        }
+      },
+      "required": [
+        "min_gain",
+        "gain_target",
+        "roi_target",
+        "freshness_days",
+        "liquidity_target_days",
+        "feasibility_target_hours",
+        "defaults"
+      ],
+      "title": "Niche",
+      "type": "object"
+    },
+    "Product": {
+      "additionalProperties": false,
+      "properties": {
+        "family": {
+          "enum": [
+            "macbook",
+            "garmin"
+          ],
+          "title": "Family",
+          "type": "string"
+        },
+        "brand": {
+          "maxLength": 60,
+          "minLength": 1,
+          "title": "Brand",
+          "type": "string"
+        },
+        "model": {
+          "maxLength": 100,
+          "minLength": 1,
+          "title": "Model",
+          "type": "string"
+        },
+        "variant": {
+          "anyOf": [
+            {
+              "maxLength": 100,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Variant"
+        },
+        "ram_gb": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "maximum": 256,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ram Gb"
+        },
+        "ssd_gb": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "maximum": 16384,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ssd Gb"
+        },
+        "size_mm": {
+          "anyOf": [
+            {
+              "maximum": 70,
+              "minimum": 20,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Size Mm"
+        }
+      },
+      "required": [
+        "family",
+        "brand",
+        "model"
+      ],
+      "title": "Product",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "title": "Version",
+      "type": "string"
+    },
+    "location": {
+      "default": "Oslo",
+      "title": "Location",
+      "type": "string"
+    },
+    "radius_km": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "string"
+        }
+      ],
+      "default": "40",
+      "title": "Radius Km"
+    },
+    "allow_shipping": {
+      "default": false,
+      "title": "Allow Shipping",
+      "type": "boolean"
+    },
+    "capital_limit": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Capital Limit"
+    },
+    "hourly_value": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "string"
+        }
+      ],
+      "default": "300",
+      "title": "Hourly Value"
+    },
+    "min_roi": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "string"
+        }
+      ],
+      "default": "0.20",
+      "title": "Min Roi"
+    },
+    "min_references": {
+      "default": 5,
+      "minimum": 5,
+      "title": "Min References",
+      "type": "integer"
+    },
+    "asking_discount": {
+      "anyOf": [
+        {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "string"
+        }
+      ],
+      "default": "0.10",
+      "title": "Asking Discount"
+    },
+    "niches": {
+      "additionalProperties": {
+        "$ref": "#/$defs/Niche"
+      },
+      "propertyNames": {
+        "enum": [
+          "macbook",
+          "garmin"
+        ]
+      },
+      "title": "Niches",
+      "type": "object"
+    },
+    "catalog": {
+      "items": {
+        "$ref": "#/$defs/CatalogItem"
+      },
+      "maxItems": 100,
+      "minItems": 1,
+      "title": "Catalog",
+      "type": "array"
+    },
+    "mail": {
+      "$ref": "#/$defs/MailConfig"
+    }
+  },
+  "required": [
+    "version",
+    "niches",
+    "catalog"
+  ],
+  "title": "Config",
+  "type": "object"
+}

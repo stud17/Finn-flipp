@@ -1,0 +1,18 @@
+{
+  "candidate_key": "demo:attractive",
+  "bought_at": "2026-10-19T10:00:00+02:00",
+  "purchase": "2400",
+  "costs": {
+    "transport": "150",
+    "fees": "100",
+    "packaging": "50",
+    "hours": "2",
+    "overhead": "100",
+    "capital_cost": "30"
+  },
+  "hourly_value": "300",
+  "status": "sold",
+  "sale": "6500",
+  "closed_at": "2026-10-19T12:00:00+02:00",
+  "demo": true
+}

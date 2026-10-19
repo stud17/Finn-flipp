@@ -1,0 +1,469 @@
+{
+  "$defs": {
+    "Costs": {
+      "additionalProperties": false,
+      "properties": {
+        "transport": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Transport"
+        },
+        "shipping": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Shipping"
+        },
+        "packaging": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Packaging"
+        },
+        "fees": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Fees"
+        },
+        "accessories": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Accessories"
+        },
+        "repair": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Repair"
+        },
+        "risk_reserve": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Risk Reserve"
+        },
+        "hours": {
+          "anyOf": [
+            {
+              "maximum": 1000.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "default": "1",
+          "title": "Hours"
+        },
+        "overhead": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Overhead"
+        },
+        "capital_cost": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Capital Cost"
+        }
+      },
+      "title": "Costs",
+      "type": "object"
+    },
+    "Product": {
+      "additionalProperties": false,
+      "properties": {
+        "family": {
+          "enum": [
+            "macbook",
+            "garmin"
+          ],
+          "title": "Family",
+          "type": "string"
+        },
+        "brand": {
+          "maxLength": 60,
+          "minLength": 1,
+          "title": "Brand",
+          "type": "string"
+        },
+        "model": {
+          "maxLength": 100,
+          "minLength": 1,
+          "title": "Model",
+          "type": "string"
+        },
+        "variant": {
+          "anyOf": [
+            {
+              "maxLength": 100,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Variant"
+        },
+        "ram_gb": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "maximum": 256,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ram Gb"
+        },
+        "ssd_gb": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "maximum": 16384,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ssd Gb"
+        },
+        "size_mm": {
+          "anyOf": [
+            {
+              "maximum": 70,
+              "minimum": 20,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Size Mm"
+        }
+      },
+      "required": [
+        "family",
+        "brand",
+        "model"
+      ],
+      "title": "Product",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "^[\\w.-]+$",
+      "title": "Id",
+      "type": "string"
+    },
+    "source": {
+      "maxLength": 80,
+      "minLength": 1,
+      "pattern": "^[\\w.-]+$",
+      "title": "Source",
+      "type": "string"
+    },
+    "entity_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Entity Id",
+      "type": "string"
+    },
+    "url": {
+      "maxLength": 1500,
+      "title": "Url",
+      "type": "string"
+    },
+    "title": {
+      "maxLength": 250,
+      "minLength": 1,
+      "title": "Title",
+      "type": "string"
+    },
+    "product": {
+      "$ref": "#/$defs/Product"
+    },
+    "price": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "string"
+        }
+      ],
+      "title": "Price"
+    },
+    "currency": {
+      "const": "NOK",
+      "default": "NOK",
+      "title": "Currency",
+      "type": "string"
+    },
+    "condition": {
+      "default": "unknown",
+      "enum": [
+        "excellent",
+        "good",
+        "fair",
+        "damaged",
+        "unknown"
+      ],
+      "title": "Condition",
+      "type": "string"
+    },
+    "demo": {
+      "default": false,
+      "title": "Demo",
+      "type": "boolean"
+    },
+    "location": {
+      "default": "ukjent",
+      "maxLength": 100,
+      "title": "Location",
+      "type": "string"
+    },
+    "distance_km": {
+      "anyOf": [
+        {
+          "maximum": 30000.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Distance Km"
+    },
+    "distance_origin": {
+      "anyOf": [
+        {
+          "maxLength": 100,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Distance Origin"
+    },
+    "shipping_possible": {
+      "default": false,
+      "title": "Shipping Possible",
+      "type": "boolean"
+    },
+    "published_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Published At"
+    },
+    "received_at": {
+      "format": "date-time",
+      "title": "Received At",
+      "type": "string"
+    },
+    "updated_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Updated At"
+    },
+    "seller_type": {
+      "default": "unknown",
+      "enum": [
+        "private",
+        "dealer",
+        "unknown"
+      ],
+      "title": "Seller Type",
+      "type": "string"
+    },
+    "availability": {
+      "default": "active",
+      "enum": [
+        "active",
+        "removed",
+        "unknown"
+      ],
+      "title": "Availability",
+      "type": "string"
+    },
+    "price_meaning": {
+      "default": "unknown",
+      "enum": [
+        "unit",
+        "installment",
+        "component",
+        "from",
+        "wanted",
+        "bundle",
+        "unknown"
+      ],
+      "title": "Price Meaning",
+      "type": "string"
+    },
+    "price_note": {
+      "default": "",
+      "maxLength": 500,
+      "title": "Price Note",
+      "type": "string"
+    },
+    "risk_flags": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 30,
+      "title": "Risk Flags",
+      "type": "array"
+    },
+    "activation_lock": {
+      "default": "unknown",
+      "enum": [
+        "cleared",
+        "unknown",
+        "locked"
+      ],
+      "title": "Activation Lock",
+      "type": "string"
+    },
+    "mdm": {
+      "default": "unknown",
+      "enum": [
+        "cleared",
+        "unknown",
+        "locked"
+      ],
+      "title": "Mdm",
+      "type": "string"
+    },
+    "inspected": {
+      "default": false,
+      "title": "Inspected",
+      "type": "boolean"
+    },
+    "costs": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Costs"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    }
+  },
+  "required": [
+    "id",
+    "source",
+    "entity_id",
+    "url",
+    "title",
+    "product",
+    "price",
+    "received_at"
+  ],
+  "title": "Candidate",
+  "type": "object"
+}

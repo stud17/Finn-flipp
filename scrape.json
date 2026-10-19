@@ -1,0 +1,35 @@
+{
+  "items_per_search": 8,
+  "min_interval_seconds": 600,
+  "request_delay_seconds": 2,
+  "detail_refresh_minutes": 120,
+  "timeout_seconds": 20,
+  "searches": [
+    {
+      "name": "MacBook Air M1 · prisreferanser 256 GB",
+      "family": "macbook",
+      "url": "https://www.finn.no/recommerce/forsale/search?q=macbook%20air%20m1%20256&sort=PUBLISHED_DESC&dealer_segment=1",
+      "limit": 20
+    },
+    {
+      "name": "MacBook Air M1",
+      "family": "macbook",
+      "url": "https://www.finn.no/recommerce/forsale/search?q=macbook%20air%20m1&sort=PUBLISHED_DESC&dealer_segment=1"
+    },
+    {
+      "name": "MacBook Air M2",
+      "family": "macbook",
+      "url": "https://www.finn.no/recommerce/forsale/search?q=macbook%20air%20m2&sort=PUBLISHED_DESC&dealer_segment=1"
+    },
+    {
+      "name": "Garmin Forerunner 955",
+      "family": "garmin",
+      "url": "https://www.finn.no/recommerce/forsale/search?q=garmin%20forerunner%20955&sort=PUBLISHED_DESC&dealer_segment=1"
+    },
+    {
+      "name": "Garmin fēnix 7",
+      "family": "garmin",
+      "url": "https://www.finn.no/recommerce/forsale/search?q=garmin%20fenix%207&sort=PUBLISHED_DESC&dealer_segment=1"
+    }
+  ]
+}

@@ -2,6 +2,8 @@
 
 Lokal MVP for å teste om brukte varer kan videreselges med overskudd etter kostnader, risiko og tidsbruk. Python, SQLite, Pydantic og Streamlit. Ingen AI-nøkkel eller betalt tjeneste kreves.
 
+**GitHub og Codex Cloud:** Se [startveiledningen](START_HER_GITHUB_OG_CODEX_CLOUD.md) for opplasting, oppsett, FINN-nettverk og hva som må settes opp separat for morgenkjøring i skyen. Lokale data og planer følger ikke automatisk med repositoriet.
+
 **Status:** Innhenting fra offentlige FINN-søke- og annonsesider er implementert. Ekte annonser holdes atskilt fra syntetisk demo. Faktisk e-postlevering og lønnsomhet er ikke verifisert. Ingen selgere kontaktes.
 
 Anders har bedt om å gå videre med nettskraping når standard-API-et ikke dekker behovet. Dette erstatter den tidligere prosjektføringen mot skraping. Det foreligger fortsatt ingen FINN-tilgangsavtale. Se [datatilgang og kildevalg](docs/DATA_ACCESS.md).

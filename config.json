@@ -1,0 +1,166 @@
+{
+  "version": "pilot-2026-10-19-v1",
+  "location": "Oslo",
+  "radius_km": "40",
+  "allow_shipping": false,
+  "capital_limit": null,
+  "hourly_value": "300",
+  "min_roi": "0.20",
+  "min_references": 5,
+  "asking_discount": "0.10",
+  "mail": {
+    "mode": "DRY_RUN",
+    "cooldown_hours": 24,
+    "score_improvement": 10
+  },
+  "catalog": [
+    {
+      "id": "air-m1-8-256",
+      "label": "MacBook Air M1 · 8/256",
+      "product": {
+        "family": "macbook",
+        "brand": "Apple",
+        "model": "MacBook Air M1",
+        "variant": "13-inch 2020",
+        "ram_gb": 8,
+        "ssd_gb": 256,
+        "size_mm": null
+      },
+      "baseline_limit": "4000"
+    },
+    {
+      "id": "air-m1-16-256",
+      "label": "MacBook Air M1 · 16/256",
+      "product": {
+        "family": "macbook",
+        "brand": "Apple",
+        "model": "MacBook Air M1",
+        "variant": "13-inch 2020",
+        "ram_gb": 16,
+        "ssd_gb": 256,
+        "size_mm": null
+      },
+      "baseline_limit": "4800"
+    },
+    {
+      "id": "air-m2-8-256",
+      "label": "MacBook Air M2 · 8/256",
+      "product": {
+        "family": "macbook",
+        "brand": "Apple",
+        "model": "MacBook Air M2",
+        "variant": "13-inch 2022",
+        "ram_gb": 8,
+        "ssd_gb": 256,
+        "size_mm": null
+      },
+      "baseline_limit": "5500"
+    },
+    {
+      "id": "air-m2-16-512",
+      "label": "MacBook Air M2 · 16/512",
+      "product": {
+        "family": "macbook",
+        "brand": "Apple",
+        "model": "MacBook Air M2",
+        "variant": "13-inch 2022",
+        "ram_gb": 16,
+        "ssd_gb": 512,
+        "size_mm": null
+      },
+      "baseline_limit": "7000"
+    },
+    {
+      "id": "forerunner-955",
+      "label": "Garmin Forerunner 955 · standard 46 mm",
+      "product": {
+        "family": "garmin",
+        "brand": "Garmin",
+        "model": "Forerunner 955",
+        "variant": "standard",
+        "ram_gb": null,
+        "ssd_gb": null,
+        "size_mm": 46
+      },
+      "baseline_limit": "1600"
+    },
+    {
+      "id": "forerunner-965",
+      "label": "Garmin Forerunner 965 · standard 47 mm",
+      "product": {
+        "family": "garmin",
+        "brand": "Garmin",
+        "model": "Forerunner 965",
+        "variant": "standard",
+        "ram_gb": null,
+        "ssd_gb": null,
+        "size_mm": 47
+      },
+      "baseline_limit": "2300"
+    },
+    {
+      "id": "fenix7-47",
+      "label": "Garmin fēnix 7 · standard 47 mm",
+      "product": {
+        "family": "garmin",
+        "brand": "Garmin",
+        "model": "fēnix 7",
+        "variant": "standard",
+        "ram_gb": null,
+        "ssd_gb": null,
+        "size_mm": 47
+      },
+      "baseline_limit": "2000"
+    },
+    {
+      "id": "fenix7s-42",
+      "label": "Garmin fēnix 7S · standard 42 mm",
+      "product": {
+        "family": "garmin",
+        "brand": "Garmin",
+        "model": "fēnix 7S",
+        "variant": "standard",
+        "ram_gb": null,
+        "ssd_gb": null,
+        "size_mm": 42
+      },
+      "baseline_limit": "1900"
+    }
+  ],
+  "niches": {
+    "macbook": {
+      "min_gain": "1000",
+      "gain_target": "3000",
+      "roi_target": "0.50",
+      "freshness_days": 60,
+      "liquidity_target_days": 14,
+      "feasibility_target_hours": "2",
+      "defaults": {
+        "transport": "150",
+        "fees": "100",
+        "packaging": "50",
+        "risk_reserve": "300",
+        "hours": "2",
+        "overhead": "100",
+        "capital_cost": "30"
+      }
+    },
+    "garmin": {
+      "min_gain": "500",
+      "gain_target": "1500",
+      "roi_target": "0.50",
+      "freshness_days": 45,
+      "liquidity_target_days": 14,
+      "feasibility_target_hours": "1.5",
+      "defaults": {
+        "transport": "80",
+        "fees": "70",
+        "packaging": "30",
+        "risk_reserve": "150",
+        "hours": "1.5",
+        "overhead": "50",
+        "capital_cost": "10"
+      }
+    }
+  }
+}

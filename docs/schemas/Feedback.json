@@ -1,0 +1,65 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "candidate_key": {
+      "title": "Candidate Key",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "irrelevant",
+        "wrong_model",
+        "gone",
+        "investigated",
+        "bought",
+        "sold",
+        "returned",
+        "loss"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "usable": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Usable"
+    },
+    "review_minutes": {
+      "anyOf": [
+        {
+          "maximum": 10000.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "string"
+        }
+      ],
+      "default": "0",
+      "title": "Review Minutes"
+    },
+    "at": {
+      "format": "date-time",
+      "title": "At",
+      "type": "string"
+    },
+    "demo": {
+      "default": false,
+      "title": "Demo",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "candidate_key",
+    "status"
+  ],
+  "title": "Feedback",
+  "type": "object"
+}

@@ -1,0 +1,13 @@
+{
+  "candidate_key": "demo:garmin-interesting",
+  "bought_at": "2026-10-19T10:00:00+02:00",
+  "purchase": "900",
+  "costs": {
+    "transport": "80",
+    "hours": "0.5"
+  },
+  "hourly_value": "300",
+  "status": "inventory",
+  "inventory_value": "2200",
+  "demo": true
+}
